@@ -1,9 +1,8 @@
 package management;
 
 import entities.Agente;
-import utils.ConsoleUtils;
-
 import java.util.ArrayList;
+import utils.ConsoleUtils;
 
 public class AgenteManager {
     private ArrayList<Agente> agentes;
@@ -18,8 +17,9 @@ public class AgenteManager {
 
         String nombre = ConsoleUtils.leerTexto("Ingrese el nombre del agente: ");
         String habilidad = ConsoleUtils.leerTexto("Ingrese la habilidad especial del agente: ");
+        String equipo = ConsoleUtils.leerTexto("Ingrese el equipo del agente ");
 
-        Agente nuevoAgente = new Agente(id, nombre, habilidad);
+        Agente nuevoAgente = new Agente(id, nombre, habilidad,equipo);
         agentes.add(nuevoAgente);
         System.out.println("Agente registrado con éxito.");
     }
@@ -35,12 +35,15 @@ public class AgenteManager {
         }
     }
 
+
+
     public void mostrarMenu() {
         boolean continuar = true;
         while (continuar) {
             System.out.println("\n=== Menú Agentes ===");
             System.out.println("1. Registrar Agente");
             System.out.println("2. Mostrar Agentes");
+
             System.out.println("3. Salir");
             int opcion = ConsoleUtils.leerEntero("Seleccione una opción: ");
             ConsoleUtils.limpiarBuffer(); // Consumir cualquier salto de línea residual
@@ -48,7 +51,7 @@ public class AgenteManager {
             switch (opcion) {
                 case 1 -> registrarAgente();
                 case 2 -> mostrarAgentes();
-                case 3 -> continuar = false;
+                case 4 -> continuar = false;
                 default -> System.out.println("Opción no válida.");
             }
         }

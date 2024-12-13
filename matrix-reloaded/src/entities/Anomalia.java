@@ -5,7 +5,7 @@ public class Anomalia extends Entidad {
     private String ubicacion;
 
     public Anomalia(int id, String nombre, int nivelSeveridad, String ubicacion) {
-        super(id, nombre);
+        super(id, nombre, ubicacion);
         this.nivelSeveridad = nivelSeveridad;
         this.ubicacion = ubicacion;
     }
